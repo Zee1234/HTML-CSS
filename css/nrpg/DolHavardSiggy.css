@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Mono');
+
+.dhs_4 {
+	text-shadow: 1px 1px #aeaeae, 
+                 2px 2px #aeaeae, 
+                 3px 3px #aeaeae;
+	font-size:   40px;
+}
+
+.dhs_1 {
+	width: 550px;
+	height: 300px;
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	background-color: green;
+}
+
+.dhs_2 {
+	width: 50px;
+	height: 300px;
+	display: table-cell;
+	position: relative;
+	
+	transition: width 1s;
+	-webkit-transition: width 1s;
+}
+.dhs_24 {
+	background-image: url('http://i.imgur.com/QC0HQ4J.png');
+	background-color: blue;
+}
+.dhs_23 {
+	background-image: url('http://i.imgur.com/0huCTKg.png');
+	background-color: green;
+}
+.dhs_22 {
+	background-image: url('http://i.imgur.com/hrDNzTP.png');
+	background-color: purple;
+}
+.dhs_21 {
+	background-image: url('http://i.imgur.com/dOqygRH.png');
+	background-color: black;
+}
+
+.dhs_1:not(:hover) > .dhs_21 {
+	width: 400px;
+}
+
+.dhs_2:hover {
+	width: 400px;
+}
+
+
+
+.dhs_5 {
+	position: absolute;
+	height: 200px;
+	width: 150px;
+	top: 50px;
+	left: 10px;
+	
+	opacity: 0;
+	transition: opacity 1s;
+}
+.dhs_51 {
+	left: 175px;
+}
+.dhs_52 {
+}
+.dhs_53 {
+	height: 50px;
+	top: 5px;
+}
+.dhs_54 {
+	height: 50px;
+	top: 220px;
+}
+.dhs_2:hover > .dhs_5:not(:hover), .dhs_2:hover > a > .dhs_5:not(:hover) {
+	opacity: .4;
+}
+.dhs_5:hover {
+	opacity: 1;
+}
+.dhs_1:not(:hover) > .dhs_21 > .dhs_5 {
+	opacity: .4
+}
+
+
+.dhs_absCenteredText {
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	
+	font-size: 20;
+	font-family: 'Nova Mono', monospace;
+	
+	color: white;
+    text-shadow: -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                 1px 1px 0 #000;
+}
+
+.dhs_6 {
+	background-color: rgba(255,204,0,0);
+	transition: background-color 1s, opacity 1s;
+	
+	-moz-border-radius: 100px / 50px;
+	-webkit-border-radius: 100px / 50px;
+	border-radius: 150px / 50px;
+}
+.dhs_6:hover {
+	background-color: rgba(255,204,0,1);
+}
+
+
+
+.dhs_3 {
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+	
+	
+    white-space: nowrap;
+	
+	
+	transform-origin: bottom right;
+	-webkit-transform-origin: bottom right;
+	-moz-transform-origin: bottom right;
+	-o-transform-origin: bottom right;
+	-ms-transform-origin: bottom right;
+	
+	transform: rotate(-90deg) translateY(-100%);
+	-webkit-transform: rotate(-90deg) translateX(100%);
+	-moz-transform: rotate(-90deg) translateY(-100%);
+	-o-transform: rotate(-90deg) translateY(-100%);
+	-ms-transform: rotate(90deg) translateY(-100%);
+}
+.dhs_2:hover > .dhs_3 {
+	animation: dhs_rotateBack .5s ease-in-out 1;
+	animation-fill-mode: forwards;
+	
+	-webkit-animation: dhs_rotateBack .5s ease-in-out 1;
+	-webkit-animation-fill-mode: forwards;
+	
+	-moz-animation: dhs_rotateBack .5s ease-in-out 1;
+	-moz-animation-fill-mode: forwards;
+	
+	-o-animation: dhs_rotateBack .5s ease-in-out 1;
+	-o-animation-fill-mode: forwards;
+	
+	-ms-animation: dhs_rotateBack .5s ease-in-out 1;
+	-ms-animation-fill-mode: forwards;
+}
+
+@keyframes dhs_rotateBack {	100% { transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-webkit-keyframes dhs_rotateBack {	100% { -webkit-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-moz-keyframes dhs_rotateBack {	100% { -moz-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-o-keyframes dhs_rotateBack {	100% { -o-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-ms-keyframes dhs_rotateBack {	100% { -ms-transform: rotate(0deg) translateX(0%) translateY(0%); } }
