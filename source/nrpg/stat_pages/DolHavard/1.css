@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Alex+Brush|Satisfy');
 
+body {
+	background-color: black;
+}
 #dhst_toggle {
 	display: none;
 }
