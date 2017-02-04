@@ -1,3 +1,15 @@
+/*
+to fit in forumotion limit, replace
+dhs_1 -> dhs_1
+dhs_2 -> dhs_2
+dhs_3 -> dhs_3
+dhs_4 -> dhs_4
+dhs_5 -> dhs_5
+dhs_6 -> dhs_6
+*/
+@media screen and (min-device-width: 1000px) { 
+
+
 @import url('https://fonts.googleapis.com/css?family=Nova+Mono');
 
 .dhs_4 {
@@ -126,7 +138,7 @@
 	right: 3px;
 	
 	
-    white-space: nowrap;
+  white-space: nowrap;
 	
 	
 	transform-origin: bottom right;
@@ -163,3 +175,11 @@
 @-moz-keyframes dhs_rotateBack {	100% { -moz-transform: rotate(0deg) translateX(0%) translateY(0%); } }
 @-o-keyframes dhs_rotateBack {	100% { -o-transform: rotate(0deg) translateX(0%) translateY(0%); } }
 @-ms-keyframes dhs_rotateBack {	100% { -ms-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+
+}
+
+@media screen and (max-device-width: 999px) {
+	.dhs_1::before {
+		content: "Signature super simplified due to the possibility of this being a mobile device! Sorry it's ugly now!"
+	}
+}

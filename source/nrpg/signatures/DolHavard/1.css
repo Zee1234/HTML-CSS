@@ -7,6 +7,7 @@ dhs_text3d -> dhs_4
 dhs_content -> dhs_5
 dhs_clicky -> dhs_6
 */
+@media screen and (min-device-width: 1000px) { 
 
 
 @import url('https://fonts.googleapis.com/css?family=Nova+Mono');
@@ -174,3 +175,11 @@ dhs_clicky -> dhs_6
 @-moz-keyframes dhs_rotateBack {	100% { -moz-transform: rotate(0deg) translateX(0%) translateY(0%); } }
 @-o-keyframes dhs_rotateBack {	100% { -o-transform: rotate(0deg) translateX(0%) translateY(0%); } }
 @-ms-keyframes dhs_rotateBack {	100% { -ms-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+
+}
+
+@media screen and (max-device-width: 999px) {
+	.dhs_container::before {
+		content: "Signature super simplified due to the possibility of this being a mobile device! Sorry it's ugly now!"
+	}
+}
