@@ -6,12 +6,13 @@ body {
   display: none; }
   #dhst_toggle ~ label .dhst_button {
     position: fixed;
-    left: 5px;
-    bottom: 5px;
-    height: 50px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
     padding: 10px;
     background-color: lightblue;
-    font-size: 40px; }
+    font-size: 40px;
+    text-align: center; }
     #dhst_toggle ~ label .dhst_button .dhst_turnOn {
       display: block;
       font-family: "Jim Nightshade", cursive; }
@@ -60,7 +61,8 @@ body {
   top: 0;
   left: 0;
   width: 510px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 100px; }
 
 .dhst_content {
   position: relative;
