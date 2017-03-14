@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Alex+Brush|Jim+Nightshade|Satisfy");
+body {
+  background-color: black; }
+
+#dhst_toggle {
+  display: none; }
+  #dhst_toggle ~ label .dhst_button {
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
+    height: 50px;
+    padding: 10px;
+    background-color: lightblue;
+    font-size: 40px; }
+    #dhst_toggle ~ label .dhst_button .dhst_turnOn {
+      display: block;
+      font-family: "Jim Nightshade", cursive; }
+    #dhst_toggle ~ label .dhst_button .dhst_turnOff {
+      display: none;
+      font-family: "Jim Nightshade", cursive; }
+    #dhst_toggle ~ label .dhst_button .dhst_fancy {
+      font-family: "Satisfy", cursive;
+      color: red; }
+  #dhst_toggle:checked ~ label .dhst_button .dhst_turnOn {
+    display: none; }
+  #dhst_toggle:checked ~ label .dhst_button .dhst_turnOff {
+    display: block; }
+  #dhst_toggle:checked ~ .dhst_content .dhst_background {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    background-image: url("http://i.imgur.com/PQNlrxo.png"), url("http://i.imgur.com/WBXmLcN.png"), url("http://i.imgur.com/sSqGmPu.png");
+    background-repeat: no-repeat, no-repeat, repeat-y;
+    background-position: top left, bottom left, 0px 171px; }
+  #dhst_toggle:checked ~ .dhst_content .dhst_body {
+    color: black;
+    padding: 30px;
+    text-align: left;
+    font-family: "Jim Nightshade", cursive;
+    font-size: 30px; }
+  #dhst_toggle:checked ~ .dhst_content .dhst_title {
+    transform: translate(-150px, 10px);
+    -webkit-transform: translate(-150px, 10px);
+    -moz-transform: translate(-150px, 10px);
+    -o-transform: translate(-150px, 10px);
+    -ms-transform: translate(-150px, 10px);
+    font-family: "Satisfy", cursive;
+    color: navy; }
+    #dhst_toggle:checked ~ .dhst_content .dhst_title::first-letter {
+      font-family: "Alex Brush", cursive;
+      color: red;
+      font-size: 90px; }
+
+.dhst_youtube {
+  background-color: green;
+  width: 100%;
+  height: 35px; }
+
+.dhst_everything {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 510px;
+  margin: 0 auto; }
+
+.dhst_content {
+  position: relative;
+  width: 100%;
+  padding: 2px;
+  text-align: center; }
+
+.dhst_title {
+  display: inline-block;
+  font-size: 30px;
+  color: white; }
+
+.dhst_body {
+  text-align: justify;
+  color: white;
+  font-size: 15px;
+  padding: 10px; }
+
+.dhst_background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: -1; }
