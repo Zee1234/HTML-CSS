@@ -19,6 +19,10 @@ body {
     .vasp_container a:visited {
       color: #00ccff; }
 
+.vasp_image {
+  max-width: 100%;
+  margin: 0 auto; }
+
 .vasp_header {
   margin-bottom: 30px;
   background-color: #a50b0b;
@@ -36,8 +40,8 @@ body {
 
 .vasp_content {
   margin-bottom: 20px;
-  background-color: white;
-  color: black; }
+  background-color: #333333;
+  color: white; }
 
 .vasp_youtube {
   width: 150px;

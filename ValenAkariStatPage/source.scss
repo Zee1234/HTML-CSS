@@ -9,8 +9,8 @@ $headerTextColor: #a57e0b;
 $titleBackgroundColor: $headerBackgroundColor;
 $titleTextColor: #f5aa2c;
 
-$contentBackgroundColor: white;
-$contentTextColor: black;
+$contentBackgroundColor: #333333;
+$contentTextColor: white;
 
 body {
   background-color:black;
@@ -39,6 +39,10 @@ body {
       color: $linkVisited;
     }
   }
+}
+.vasp_image {
+  max-width: 100%;
+  margin: 0 auto;
 }
 .vasp_header {
   @extend .spacing;
