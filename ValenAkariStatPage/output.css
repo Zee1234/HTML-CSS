@@ -1,0 +1,47 @@
+body {
+  background-color: black;
+  background-image: url("https://media.giphy.com/media/dNd4CSOWmVVSM/giphy.gif"); }
+
+.spacing, .vasp_header, .vasp_title, .vasp_content {
+  margin-top: 10px;
+  padding: 10px; }
+
+.vasp_container {
+  margin: 0 auto;
+  width: 500px;
+  background-color: black; }
+  .vasp_container a {
+    color: #ffcc00; }
+    .vasp_container a:hover {
+      color: #cc00ff; }
+    .vasp_container a:active {
+      color: #ccff00; }
+    .vasp_container a:visited {
+      color: #00ccff; }
+
+.vasp_header {
+  margin-bottom: 30px;
+  background-color: #a50b0b;
+  color: #a57e0b;
+  text-align: center;
+  font-size: 40px; }
+
+.vasp_details {
+  font-size: 12px; }
+
+.vasp_title {
+  background-color: #a50b0b;
+  color: #f5aa2c;
+  text-align: center; }
+
+.vasp_content {
+  margin-bottom: 20px;
+  background-color: white;
+  color: black; }
+
+.vasp_youtube {
+  width: 150px;
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px; }

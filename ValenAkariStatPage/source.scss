@@ -1,0 +1,75 @@
+$link: #ffcc00;
+$linkVisited: #00ccff;
+$linkHover: #cc00ff;
+$linkActive: #ccff00;
+
+$headerBackgroundColor: #a50b0b;
+$headerTextColor: #a57e0b;
+
+$titleBackgroundColor: $headerBackgroundColor;
+$titleTextColor: #f5aa2c;
+
+$contentBackgroundColor: white;
+$contentTextColor: black;
+
+body {
+  background-color:black;
+  background-image: url('https://media.giphy.com/media/dNd4CSOWmVVSM/giphy.gif');
+}
+.spacing {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.vasp_container {
+  margin: 0 auto;
+  width: 500px;
+  background-color: black;
+
+  a {
+    color: $link;
+
+    &:hover {
+      color: $linkHover;
+    }
+    &:active {
+      color: $linkActive;
+    }
+    &:visited {
+      color: $linkVisited;
+    }
+  }
+}
+.vasp_header {
+  @extend .spacing;
+
+  margin-bottom: 30px;
+  background-color: $headerBackgroundColor;
+  color: $headerTextColor;
+  text-align: center;
+  font-size: 40px;
+}
+.vasp_details {
+  font-size:12px;
+}
+.vasp_title {
+  @extend .spacing;
+
+  background-color: $titleBackgroundColor;
+  color: $titleTextColor;
+  text-align: center;
+}
+.vasp_content {
+  @extend .spacing;
+
+  margin-bottom: 20px;
+  background-color: $contentBackgroundColor;
+  color: $contentTextColor;
+}
+.vasp_youtube {
+  width: 150px;
+  height: 80px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
