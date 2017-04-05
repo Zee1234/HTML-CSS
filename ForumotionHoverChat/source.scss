@@ -1,0 +1,78 @@
+$background: black;
+$color: #ffcc00;
+
+$bottom: 10px;
+$right: 10px;
+
+$smallWidth: 100px;
+$smallHeight: 30px;
+$largeWidth: 600px;
+$largeHeight: 800px;
+
+$smallFont: 13px;
+$largeFont: 10px;
+$smallSwitchHeight: 30px;
+$largeSwitchHeight: 20px;
+$padding: 5px 0px 0px 0px;
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition:    $transition;
+  -ms-transition:     $transition;
+  -o-transition:      $transition;
+  transition:         $transition;
+}
+
+@mixin border-radius($tleft,$tright,$bright,$bleft) {
+  -webkit-border-radius: $tleft $tright $bright $bleft;
+  -moz-border-radius:    $tleft $tright $bright $bleft;
+  border-radius:         $tleft $tright $bright $bleft;
+}
+
+#nbhcb_toggle {
+  display: none;
+
+  &:checked {
+    +#nbhcb_container {
+      @include border-radius(2px,2px,2px,2px);
+      width:  $largeWidth;
+      height: $largeHeight;
+
+      #nbhcb_switch {
+        height: $largeSwitchHeight;
+        font-size: $largeFont;
+      }
+    }
+  }
+}
+
+#nbhcb_container {
+  @include transition(all 1s ease-in-out);
+  @include border-radius(12px,12px,12px,12px);
+  position: fixed;
+  bottom:   $bottom;
+  right:    $right;
+  width:    $smallWidth;
+  height:   $smallHeight;
+
+  background-color: $background;
+  color:            $color;
+
+  overflow: hidden;
+}
+
+#nbhcb_switch {
+  @include transition(all 1s ease-in-out);
+  width:  100%;
+  height: $smallSwitchHeight;
+  font-size:  $smallFont;
+  text-align: center;
+  padding: $padding;
+}
+
+#nbhcb_frame {
+  @include transition(all 1s ease-in-out);
+  width:  100%;
+  height: $largeHeight - $largeSwitchHeight - 10px;
+  border-width: 0px;
+}
