@@ -1,3 +1,6 @@
 [submodule "lua-sass-ffi"]
 	path = lua-sass-ffi
 	url = https://github.com/roryrjb/lua-sass-ffi
+[submodule "lua-resty-sass"]
+	path = lua-resty-sass
+	url = https://github.com/bungle/lua-resty-sass
