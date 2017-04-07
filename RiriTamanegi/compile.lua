@@ -1,1 +1,1 @@
-local sass = require "../lua-resty-sass.lib.sass"
+local sass = require "./lua-sass-ffi/sass"

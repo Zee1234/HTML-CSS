@@ -4,3 +4,6 @@
 [submodule "lua-resty-sass"]
 	path = lua-resty-sass
 	url = https://github.com/bungle/lua-resty-sass
+[submodule "RiriTamanegi/lua-sass-ffi"]
+	path = RiriTamanegi/lua-sass-ffi
+	url = https://github.com/roryrjb/lua-sass-ffi
