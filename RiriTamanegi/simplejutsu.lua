@@ -2,7 +2,7 @@ local prefix = 'znbja_' -- global prefix for classes and IDs
 local arg = {'jutsu/Passive/Clan.yaml'}
 
 local function array(tab)
-  return tab and setmetatable(tab,table) or setmetatable({},table)
+  return tab and setmetatable(tab,{__index = table}) or setmetatable({},{__index = table})
 end
 -- Add some functions to table to be used as a special metatable
 function table:map(func)
