@@ -24,11 +24,16 @@ end
 
 --- Create the HAML renderer
 local haml = require 'haml'
-local hamlOptions = {format = 'html5'}
-local engine = haml.new(hamlOptions)
-local function renderHAML(file,vars)
-  engine:render_file(file,vars)
+do
+  local hamlOptions = {format = 'html5'}
+  local engine = haml.new(hamlOptions)
+  function haml.render(file,vars)
+    engine:render_file(file,vars)
+  end
 end
+
+--- YAML renderer
+local yaml = require 'yaml'
 
 --- Some of the 'renderers' don't support file arguments, and I needed to read Some
 -- basic text files into strings anyways, so why not?
@@ -41,14 +46,6 @@ local function readFull(file)
   assert(string,err)
   handle:close()
   return string
-end
-
---- YAML renderer
-local yaml = require 'yaml'
-local function loadYAML(file)
-  local tab,err = yaml.load(readFull(file))
-  assert(tab,err)
-  return array(tab)
 end
 
 -- Applies the global prefix to classes and IDs
@@ -74,6 +71,7 @@ end
 -- @document will be table.concat'd at the end of this all.
 local document = array{}
 
+--[[
 for i=1, #arg do
   document:insertArray(
     loadYAML(arg[i]):map(function(options)
@@ -82,8 +80,21 @@ for i=1, #arg do
     end)
   )
 end
+--]]
+for _,v in ipairs(arg) do
+  local tab = yaml.load(readFull(v))
+  for _,v in ipairs(tab) do
+    document:insert(haml.render('haml/jutsu.haml',v))
+  end
+end
 
 local output = document:concat('\n')
 local handle = io.open('jutsuoutput.html','w')
 handle:write(output)
 handle:close()
+--[[
+local yamlstuff = loadYAML(arg[1])
+print(yamlstuff)
+local hamlstuff = renderHAML('./haml/jutsu.haml',yamlstuff[1])
+print(hamlstuff)
+--]]
