@@ -1,0 +1,42 @@
+basics:
+  name: Riri Tamanegi
+  alias:
+    - N/A (for now)
+  age: 18
+  gender: Female
+  height: 5'4
+  weight: 120lbs
+  zodiac: Aquarius
+  personality: |
+
+  appearance: |
+
+  history: |
+
+  birthplace: Pandora
+raceinfo:
+  race: Human
+  class: Ninja
+  clan:
+    url: http://narutobeginnings.forumsmotions.com/t4699-tamanegi-clan
+    name: Tamanegi
+  chakranature:
+    - ''
+rankinfo:
+  organization: ''
+  specializations:
+    - ''
+    - ''
+    - ''
+    - ''
+weapons:
+  primary:
+    name: ''
+    link: ''
+  -
+    name: ''
+    link: ''
+jutsu:
+  -
+    name: ''
+    url: ''
