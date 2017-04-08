@@ -24,13 +24,8 @@ end
 
 --- Create the HAML renderer
 local haml = require 'haml'
-do
-  local hamlOptions = {format = 'html5'}
-  local engine = haml.new(hamlOptions)
-  function haml.render(file,vars)
-    engine:render_file(file,vars)
-  end
-end
+local hamlOptions = {format = 'html5'}
+
 
 --- YAML renderer
 local yaml = require 'yaml'
@@ -84,7 +79,7 @@ end
 for _,v in ipairs(arg) do
   local tab = yaml.load(readFull(v))
   for _,v in ipairs(tab) do
-    document:insert(haml.render('haml/jutsu.haml',v))
+    document:insert(select(1,haml.new(hamlOptions):render_file('haml/jutsu.haml',v)))
   end
 end
 
