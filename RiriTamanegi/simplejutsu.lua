@@ -33,12 +33,12 @@ end
 -- basic text files into strings anyways, so why not?
 local function readFull(file)
   local err
-  local file,string
-  file,err = io.open(file)
-  assert(file,err)
-  string,err = file:read('*a')
+  local handle,string
+  handle,err = io.open(file)
+  assert(handle,err)
+  string,err = handle:read('*a')
   assert(string,err)
-  file:close()
+  handle:close()
   return string
 end
 
