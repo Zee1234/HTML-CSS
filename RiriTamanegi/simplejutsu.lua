@@ -8,9 +8,10 @@ end
 function table:map(func)
   local arr = array{}
   for i=1, #self do
-    arr:insert(func(self[i]))
+    local ret = func(self[i])
+    arr:insert(ret)
   end
-  return self
+  return arr
 end
 function table:insertArray(arr)
   for i=1, #arr do
