@@ -1,5 +1,5 @@
 local prefix = 'znbja_' -- global prefix for classes and IDs
-local arg = {...}
+local arg = {'jutsu/Passive/Clan.yaml'}
 
 local function array(tab)
   return tab and setmetatable(tab,table) or setmetatable({},table)
@@ -27,9 +27,6 @@ local hamlOptions = {format = 'html5'}
 local engine = haml.new(hamlOptions)
 local function renderHAML(file,vars)
   engine:render_file(file,vars)
-end
-function table:renderHAML(file)
-  return renderHAML(file,self)
 end
 
 --- Some of the 'renderers' don't support file arguments, and I needed to read Some
@@ -76,18 +73,16 @@ end
 -- @document will be table.concat'd at the end of this all.
 local document = array{}
 
-local options = loadYAML('info.yaml')
-
 for i=1, #arg do
   document:insertArray(
     loadYAML(arg[i]):map(function(options)
       options.ID = iterateID('jutsu')
-      return options:renderHAML('haml/jutsu.haml')
+      return renderHAML('haml/jutsu.haml',options)
     end)
   )
 end
 
 local output = document:concat('\n')
-local file = io.open('jutsuoutput.html','w')
-file:write(output)
-file:close()
+local handle = io.open('jutsuoutput.html','w')
+handle:write(output)
+handle:close()
