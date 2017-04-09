@@ -25,10 +25,10 @@ local loadYAML = yaml.load
 
 --- Some of the 'renderers' don't support file arguments, and I needed to read Some
 -- basic text files into strings anyways, so why not?
-local function readFull(file)
+local function readFull(path)
   local err
   local file,string
-  file,err = io.open(file)
+  file,err = io.open(path)
   assert(file,err)
   string,err = file:read('*a')
   assert(string,err)
