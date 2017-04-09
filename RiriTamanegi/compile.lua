@@ -65,7 +65,13 @@ options.generals.appearance = readFull('characterinfo/appearance')
 options.generals.history = readFull('characterinfo/history')
 options.generals.personality = readFull('characterinfo/personality')
 
-
+document:insert(
+  ('%s%s%s'):format(
+    "<style>",
+    sass('source.scss','-t compressed --scss'),
+    "</style>"
+  )
+)
 document:insert(
   select(
     1,
@@ -79,3 +85,9 @@ document:insert(
 local handle = io.open('outputs/page.output.html','w')
 handle:write(document:concat())
 handle:close()
+local minifier = io.popen('html-minifier --collapse-boolean-attributes --collapse-whitespace --decode-entities --html5 --minify-css --minify-js --remove-attribute-quotes --remove-empty-attributes outputs/page.output.html')
+local minified = minifier:read('*a')
+minifier:close()
+local minFile = io.open('outputs/page.output.min.html','w')
+minFile:write(minified)
+minfile:close()
