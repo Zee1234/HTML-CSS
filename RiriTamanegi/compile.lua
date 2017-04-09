@@ -56,9 +56,6 @@ end
 
 
 --- The actual full rendering logic
--- @document will be table.concat'd at the end of this all.
-local document = setmetatable({},{__index = table}) -- allow :insert and :concat
-
 local options = loadYAML(readFull('info.yaml'))
 
 local laters = {}
@@ -69,14 +66,18 @@ options.generals.history = '{$history}'
 laters.personality = readFull('characterinfo/personality')
 options.generals.personality = '{$personality}'
 
-document:insert(
+local cssFile = io.open('outputs/generic.output.css','w')
+cssFile:write(
   ('%s%s%s'):format(
     "<style>",
     sass('source.scss','-t compressed --scss'),
     "</style>"
   )
 )
-document:insert(
+cssFile:close()
+
+local htmlFile = io.open('outputs/page.output.html','w')
+htmlFile:write(
   select(
     1,
     haml.new(hamlOptions):render_file(
@@ -85,10 +86,7 @@ document:insert(
     )
   )
 )
-
-local handle = io.open('outputs/page.output.html','w')
-handle:write(document:concat())
-handle:close()
+htmlFile:close()
 local minifier = io.popen('html-minifier --collapse-boolean-attributes --collapse-whitespace --decode-entities --html5 --minify-css --minify-js --remove-attribute-quotes --remove-empty-attributes outputs/page.output.html')
 local minified = minifier:read('*a')
 minifier:close()
