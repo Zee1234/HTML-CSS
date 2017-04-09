@@ -76,11 +76,6 @@ $padding: 5px 0px 0px 0px;
   color: $color;
   overflow: hidden;
   z-index: 97;
-  display: table;
-
-  label {
-    display: table-row;
-  }
 }
 
 #nbhcb_switch {
@@ -92,7 +87,6 @@ $padding: 5px 0px 0px 0px;
   text-align: center;
   padding: $padding;
   z-index: 99;
-  display: table-cell;
 }
 
 #nbhcb_frame {
