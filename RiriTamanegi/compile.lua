@@ -81,7 +81,16 @@ cssFile:write(
 cssFile:close()
 
 local htmlFile = io.open('outputs/page.output.html','w')
-htmlFile:write(select(1, haml.new(hamlOptions):render_file('haml/main.haml', options)))
+--htmlFile:write(select(1, haml.new(hamlOptions):render_file('haml/main.haml', options)))
+htmlFile:write(
+  select(
+    1,
+    haml.new(hamlOptions):render_file(
+      'haml/main.haml',
+      options
+    )
+  )
+)
 htmlFile:close()
 local minifier = io.popen('html-minifier --collapse-boolean-attributes --collapse-whitespace --decode-entities --html5 --minify-css --minify-js --remove-attribute-quotes --remove-empty-attributes outputs/page.output.html')
 local minified = minifier:read('*a')
