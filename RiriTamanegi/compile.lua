@@ -61,9 +61,13 @@ local document = setmetatable({},{__index = table}) -- allow :insert and :concat
 
 local options = loadYAML(readFull('info.yaml'))
 
-options.generals.appearance = readFull('characterinfo/appearance')
-options.generals.history = readFull('characterinfo/history')
-options.generals.personality = readFull('characterinfo/personality')
+local laters = {}
+laters.appearance = readFull('characterinfo/appearance')
+options.generals.appearance = '{$appearance}'
+laters.history = readFull('characterinfo/history')
+options.generals.history = '{$history}'
+laters.personality = readFull('characterinfo/personality')
+options.generals.personality = '{$personality}'
 
 document:insert(
   ('%s%s%s'):format(
@@ -89,5 +93,10 @@ local minifier = io.popen('html-minifier --collapse-boolean-attributes --collaps
 local minified = minifier:read('*a')
 minifier:close()
 local minFile = io.open('outputs/page.output.min.html','w')
-minFile:write(minified)
-minfile:close()
+minFile:write(
+  minified
+    :gsub(options.generals.appearance,laters.appearance)
+    :gsub(options.generals.history,laters.history)
+    :gsub(options.generals.personality,laters.personality)
+)
+minFile:close()
