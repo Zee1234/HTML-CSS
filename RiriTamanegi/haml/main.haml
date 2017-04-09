@@ -1,0 +1,51 @@
+!!! Strict
+%input.znbcp_controller(type = "checkbox")
+.znbcp_container
+  .znbcp_name=generals.name
+  .znbcp_title
+    The Body
+  .znbcp_content
+    %span=generals.age.."Year Old "..(generals.gender and generals.gender.." " or "")..specifics.race
+    %br
+    %span="Standing At "..generals.height
+    %br
+    %span="Weighing "..generals.weight
+  .znbcp_title
+    The Character
+  .znbcp_content
+    %span="Known as: "..generals.alias
+    %span="Born in "..generals.birthplace.." to "
+      %a(href=specifics.clan.url)=specifics.clan.name
+    %br
+    %span="Zodiac is "..generals.zodiac
+  .znbcp_title
+    The Country
+  .znbcp_content
+    %span="A "..specifics.class.." of the "..rankinfo.rank.." rank"
+    %br
+    %span="Belongs to "..rankinfo.organization
+  .znbcp_title
+    The Specifics
+  .znbcp_content
+    %span="Specializes in: "..table.concat(rankinfo.specializations,", ")
+    %br
+    %span="Chakra can become: "..table.concat(specifics.chakranature,", ")
+  .znbcp_title
+    The Details
+  .znbcp_content
+    %span
+      [b]Personality:[/b]
+    %br
+    %span=personality
+    %br
+    %br
+    %span
+      [b]Appearance:[/b]
+    %br
+    %span=appearnce
+    %br
+    %br
+    %span
+      [b]History:[/b]
+    %br
+    %span=history

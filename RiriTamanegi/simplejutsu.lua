@@ -1,27 +1,6 @@
 local prefix = 'znbja_' -- global prefix for classes and IDs
 local arg = {'jutsu/Passive/Clan.yaml'}
 
-local function array(tab)
-  return tab and setmetatable(tab,{__index = table}) or setmetatable({},{__index = table})
-end
--- Add some functions to table to be used as a special metatable
-function table:map(func)
-  local arr = array{}
-  for i=1, #self do
-    local ret = func(self[i])
-    arr:insert(ret)
-  end
-  return arr
-end
-function table:insertArray(arr)
-  for i=1, #arr do
-    self:insert(arr[i])
-  end
-  return self
-end
-
-
-
 --- Create the HAML renderer
 local haml = require 'haml'
 local hamlOptions = {format = 'html5'}
@@ -64,32 +43,19 @@ end
 
 --- The actual full rendering logic
 -- @document will be table.concat'd at the end of this all.
-local document = array{}
+local document = {}
 
---[[
-for i=1, #arg do
-  document:insertArray(
-    loadYAML(arg[i]):map(function(options)
-      options.ID = iterateID('jutsu')
-      return renderHAML('haml/jutsu.haml',options)
-    end)
-  )
-end
---]]
 for _,v in ipairs(arg) do
   local tab = yaml.load(readFull(v))
   for _,v in ipairs(tab) do
-    document:insert(select(1,haml.new(hamlOptions):render_file('haml/jutsu.haml',v)))
+    table.insert(
+      document,
+      select(1,haml.new(hamlOptions):render_file('haml/jutsu.haml',v))
+    )
   end
 end
 
 local output = document:concat('\n')
-local handle = io.open('jutsuoutput.html','w')
+local handle = io.open('outputs/simplejutsu.output.html','w')
 handle:write(output)
 handle:close()
---[[
-local yamlstuff = loadYAML(arg[1])
-print(yamlstuff)
-local hamlstuff = renderHAML('./haml/jutsu.haml',yamlstuff[1])
-print(hamlstuff)
---]]

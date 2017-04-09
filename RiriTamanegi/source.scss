@@ -1,0 +1,30 @@
+$pixelcutoff: 760px;
+
+@mixin simple {
+        color: blue;
+}
+@mixin complex {
+        color: black;
+}
+
+.znbcp_controller {
+        &:checked {
+                @media only screen and (max-width: $pixelcutoff) {
+                        @include complex;
+                }
+                @media only screen and (min-width: $pixelcutoff+1px) {
+                        @include simple;
+                }
+
+        }
+        &:not(:checked) {
+                @media only screen and (max-width: $pixelcutoff) {
+                        @include simple;
+                }
+                @media only screen and (min-width: $pixelcutoff+1px) {
+                        @include complex;
+                }
+
+        }
+
+}
