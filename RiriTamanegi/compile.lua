@@ -1,4 +1,5 @@
 local prefix = 'znbcp_' -- global prefix for classes and IDs
+local fs = require 'fs'
 
 
 
@@ -6,6 +7,9 @@ local prefix = 'znbcp_' -- global prefix for classes and IDs
 --- Create the HAML renderer
 local haml = require 'haml'
 local hamlOptions = {format = 'html5'}
+local function render_file(file,options)
+  haml.new(hamlOptions):render_file(file,options)
+end
 
 
 --- Really god damn dirty way to get SCSS compiled
@@ -77,15 +81,7 @@ cssFile:write(
 cssFile:close()
 
 local htmlFile = io.open('outputs/page.output.html','w')
-htmlFile:write(
-  select(
-    1,
-    haml.new(hamlOptions):render_file(
-      'haml/main.haml',
-      options
-    )
-  )
-)
+htmlFile:write(select(1, render_file('haml/main.haml', options)))
 htmlFile:close()
 local minifier = io.popen('html-minifier --collapse-boolean-attributes --collapse-whitespace --decode-entities --html5 --minify-css --minify-js --remove-attribute-quotes --remove-empty-attributes outputs/page.output.html')
 local minified = minifier:read('*a')
@@ -98,3 +94,31 @@ minFile:write(
     :gsub(options.generals.personality,laters.personality)
 )
 minFile:close()
+
+
+local jutsus = {files={};folders={}}
+local iter = fs.scandirsync('jutsu')
+for name,type in iter() do
+  if type == 'file' then
+    jutsus.files[#jutsu.files+1] = name
+  elseif type == 'directory' then
+    jutsu.folders[#jutsu.folders+1] = name
+  end
+end
+local function renderSpoiler(options)
+  render_file('haml/spoiler.haml',options)
+end
+local function renderJutsu(options)
+  render_file('haml/jutsu.haml',options)
+end
+
+local genericJutsu = {}
+for _,file in ipairs(jutsu.files) do
+  local container = yaml.load('jutsu/'..file)
+  local arr = {}
+  for _,v in ipairs(container) do
+    v.ID = v.url
+    table.insert(arr,renderJutsu(v))
+  end
+  table.insert(genericJutsu,table.concat(arr,"\n"))
+end
