@@ -17,30 +17,45 @@ $padding: 5px 0px 0px 0px;
 
 @mixin transition($transition) {
   -webkit-transition: $transition;
-  -moz-transition:    $transition;
-  -ms-transition:     $transition;
-  -o-transition:      $transition;
-  transition:         $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
 }
 
-@mixin border-radius($tleft,$tright,$bright,$bleft) {
+@mixin border-radius($tleft, $tright, $bright, $bleft) {
   -webkit-border-radius: $tleft $tright $bright $bleft;
-  -moz-border-radius:    $tleft $tright $bright $bleft;
-  border-radius:         $tleft $tright $bright $bleft;
+  -moz-border-radius: $tleft $tright $bright $bleft;
+  border-radius: $tleft $tright $bright $bleft;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -ms-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: calc(#{$expression});
 }
 
 #nbhcb_toggle {
   display: none;
 
   &:checked {
-    +#nbhcb_container {
-      @include border-radius(2px,2px,2px,2px);
-      width:  $largeWidth;
+    + #nbhcb_container {
+      @include border-radius(2px, 2px, 2px, 2px);
+
+      width: $largeWidth;
       height: $largeHeight;
 
       #nbhcb_switch {
         height: $largeSwitchHeight;
         font-size: $largeFont;
+      }
+
+      #nbhcb_frame {
+        @include calc(height, "#{unquote("100% - #{$largeSwitchHeight}")}");
+
+        top: $largeSwitchHeight;
       }
     }
   }
@@ -48,31 +63,45 @@ $padding: 5px 0px 0px 0px;
 
 #nbhcb_container {
   @include transition(all 1s ease-in-out);
-  @include border-radius(12px,12px,12px,12px);
+  @include border-radius(12px, 12px, 12px, 12px);
+
   position: fixed;
-  bottom:   $bottom;
-  right:    $right;
-  width:    $smallWidth;
-  height:   $smallHeight;
-
+  bottom: $bottom;
+  right: $right;
+  width: $smallWidth;
+  height: $smallHeight;
+  max-width: 90%;
+  max-height: 90%;
   background-color: $background;
-  color:            $color;
-
+  color: $color;
   overflow: hidden;
+  z-index: 97;
+  display: table;
+
+  label {
+    display: table-row;
+  }
 }
 
 #nbhcb_switch {
   @include transition(all 1s ease-in-out);
-  width:  100%;
+
+  width: 100%;
   height: $smallSwitchHeight;
-  font-size:  $smallFont;
+  font-size: $smallFont;
   text-align: center;
   padding: $padding;
+  z-index: 99;
+  display: table-cell;
 }
 
 #nbhcb_frame {
   @include transition(all 1s ease-in-out);
-  width:  100%;
-  height: $largeHeight - $largeSwitchHeight - 10px;
+  @include calc(height, "#{unquote("100% - #{$smallSwitchHeight}")}");
+
+  width: 100%;
+  position: absolute;
+  top: $smallSwitchHeight;
   border-width: 0px;
+  z-index: 98;
 }
