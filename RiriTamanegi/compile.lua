@@ -104,7 +104,7 @@ minFile:write(
 )
 minFile:close()
 
-
+--[[
 local jutsus = {files={};folders={}}
 local iter = fs.scandirsync('jutsu')
 for name,type in iter() do
@@ -131,3 +131,4 @@ for _,file in ipairs(jutsu.files) do
   end
   table.insert(genericJutsu,table.concat(arr,"\n"))
 end
+--]]
