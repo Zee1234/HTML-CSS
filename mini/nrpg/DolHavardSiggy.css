@@ -147,11 +147,11 @@ dhs_6 -> dhs_6
 	-o-transform-origin: bottom right;
 	-ms-transform-origin: bottom right;
 	
-	transform: rotate(-90deg) translateY(-100%);
+	transform: rotate(-90deg) translateX(-100%);
 	-webkit-transform: rotate(-90deg) translateX(100%);
-	-moz-transform: rotate(-90deg) translateY(-100%);
-	-o-transform: rotate(-90deg) translateY(-100%);
-	-ms-transform: rotate(90deg) translateY(-100%);
+	-moz-transform: rotate(-90deg) translateX(-100%);
+	-o-transform: rotate(-90deg) translateX(-100%);
+	-ms-transform: rotate(90deg) translateX(-100%);
 }
 .dhs_2:hover > .dhs_3 {
 	animation: dhs_rotateBack .5s ease-in-out 1;
