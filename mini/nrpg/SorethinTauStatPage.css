@@ -1,0 +1,185 @@
+/*
+to fit in forumotion limit, replace
+sts_1 -> sts_1
+sts_2 -> sts_2
+sts_3 -> sts_3
+sts_4 -> sts_4
+sts_5 -> sts_5
+sts_6 -> sts_6
+*/
+@media screen and (min-device-width: 1000px) { 
+
+
+@import url('https://fonts.googleapis.com/css?family=Nova+Mono');
+
+.sts_4 {
+	text-shadow: 1px 1px #aeaeae, 
+                 2px 2px #aeaeae, 
+                 3px 3px #aeaeae;
+	font-size: 35px;
+	color: black;
+}
+
+.sts_1 {
+	width: 550px;
+	height: 300px;
+	padding: 0px;
+	margin: 0px;
+	display: table;
+	background-color: green;
+}
+
+.sts_2 {
+	width: 50px;
+	height: 300px;
+	display: table-cell;
+	position: relative;
+	
+	transition: width 1s;
+	-webkit-transition: width 1s;
+}
+.sts_24 {
+	background-image: url('http://i.imgur.com/tcjm9L6.png');
+	background-color: blue;
+}
+.sts_23 {
+	background-image: url('http://i.imgur.com/fZeSVEs.png');
+	background-color: green;
+}
+.sts_22 {
+	background-image: url('http://i.imgur.com/RifYRNX.png');
+	background-color: purple;
+}
+.sts_21 {
+	background-image: url('http://i.imgur.com/z3VCsf0.png');
+	background-color: black;
+}
+
+.sts_1:not(:hover) > .sts_21 {
+	width: 400px;
+}
+
+.sts_2:hover {
+	width: 400px;
+}
+
+
+
+.sts_5 {
+	position: absolute;
+	height: 200px;
+	width: 150px;
+	top: 50px;
+	left: 10px;
+	
+	opacity: 0;
+	transition: opacity 1s;
+}
+.sts_51 {
+	left: 175px;
+}
+.sts_52 {
+}
+.sts_53 {
+	height: 50px;
+	top: 5px;
+}
+.sts_54 {
+	height: 50px;
+	top: 220px;
+}
+.sts_2:hover > .sts_5:not(:hover), .sts_2:hover > a > .sts_5:not(:hover) {
+	opacity: .4;
+}
+.sts_5:hover {
+	opacity: 1;
+}
+.sts_1:not(:hover) > .sts_21 > .sts_5 {
+	opacity: .4
+}
+
+
+.sts_absCenteredText {
+	width: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	
+	font-size: 20;
+	font-family: 'Nova Mono', monospace;
+	
+	color: white;
+    text-shadow: -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                 1px 1px 0 #000;
+}
+
+.sts_6 {
+	background-color: rgba(255,204,0,0);
+	transition: background-color 1s, opacity 1s;
+	
+	-moz-border-radius: 100px / 50px;
+	-webkit-border-radius: 100px / 50px;
+	border-radius: 150px / 50px;
+}
+.sts_6:hover {
+	background-color: rgba(255,204,0,1);
+}
+
+
+
+.sts_3 {
+	position: absolute;
+	bottom: 3px;
+	right: 3px;
+	
+	
+  white-space: nowrap;
+	
+	
+	transform-origin: bottom right;
+	-webkit-transform-origin: bottom right;
+	-moz-transform-origin: bottom right;
+	-o-transform-origin: bottom right;
+	-ms-transform-origin: bottom right;
+	
+	transform: rotate(-90deg) translateY(-100%);
+	-webkit-transform: rotate(-90deg) translateX(100%);
+	-moz-transform: rotate(-90deg) translateY(-100%);
+	-o-transform: rotate(-90deg) translateY(-100%);
+	-ms-transform: rotate(90deg) translateY(-100%);
+}
+.sts_2:hover > .sts_3 {
+	animation: sts_rotateBack .5s ease-in-out 1;
+	animation-fill-mode: forwards;
+	
+	-webkit-animation: sts_rotateBack .5s ease-in-out 1;
+	-webkit-animation-fill-mode: forwards;
+	
+	-moz-animation: sts_rotateBack .5s ease-in-out 1;
+	-moz-animation-fill-mode: forwards;
+	
+	-o-animation: sts_rotateBack .5s ease-in-out 1;
+	-o-animation-fill-mode: forwards;
+	
+	-ms-animation: sts_rotateBack .5s ease-in-out 1;
+	-ms-animation-fill-mode: forwards;
+}
+
+@keyframes sts_rotateBack {	100% { transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-webkit-keyframes sts_rotateBack {	100% { -webkit-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-moz-keyframes sts_rotateBack {	100% { -moz-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-o-keyframes sts_rotateBack {	100% { -o-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+@-ms-keyframes sts_rotateBack {	100% { -ms-transform: rotate(0deg) translateX(0%) translateY(0%); } }
+
+}
+
+@media screen and (max-device-width: 999px) {
+	.sts_1::before {
+		content: "Signature super simplified due to the possibility of this being a mobile device! Sorry it's ugly now!"
+	}
+}
